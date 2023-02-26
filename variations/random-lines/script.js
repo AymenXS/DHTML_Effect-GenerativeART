@@ -6,6 +6,7 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 class Line {
+// Declaration of the variables used to create one Line: Start/End Position, Line Width and Color
   constructor(canvas) {
     this.canvas = canvas;
     this.startX = Math.random() * this.canvas.width;
@@ -15,6 +16,7 @@ class Line {
     this.lineWidth = Math.floor(Math.random() * 15 + 1);
     this.hue = Math.floor(Math.random() * 360);
   }
+  // The function for drawing one Line 
   draw(context) {
     context.strokeStyle = "hsl(" + this.hue + ",100%, 50%)";
     context.lineWidth = this.lineWidth;
@@ -25,12 +27,12 @@ class Line {
   }
 }
 
+// Initiation of the class, the amount of lines to be draw and the execution
 const lineArrays = [];
-const linesAmount = 30;
+const linesAmount = 30; 
 const line = new Line(canvas);
 
 for (i = 0; i < linesAmount; i++) {
   lineArrays[i] = new Line(canvas);
 }
-console.log(lineArrays);
 lineArrays.forEach((line) => line.draw(ctx));
